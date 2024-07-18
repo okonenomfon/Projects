@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Mari's Fashion Store</h1>
+        <p>Discover the latest trends in fashion for men, women, and children.</p>
+        <a href="{{ url_for('shop') }}" class="btn btn-primary">Start Shopping</a>
+    </div>
+</section>
+
+<section class="featured">
+    <div class="featured-content">
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="{{ url_for('static', filename='unisex.jpg') }}" alt="Product 1">
+                <h3>Unisex Shirts</h3>
+                <p>$50.00</p>
+            </div>
+            <!-- Add more products -->
+            <div class="product">
+                <img src="{{ url_for('static', filename='jean.jpg') }}" alt="Product 2">
+                <h3>Jeans</h3>
+                <p>$55.00</p>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='necklace.jpg') }}" alt="Product 3">
+                <h3>Necklaces</h3>
+                <p>$60.00</p>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='child-shoe.jpg') }}" alt="Product 4">
+                <h3>Shoes</h3>
+                <p>$45.00</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Additional styles for the content */
+
+    /* Hero section styles */
+    .hero {
+        text-align: center;
+        padding: 150px 0;
+        background-color: #f8f9fa; /* Light gray background */
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .hero .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #007bff; /* Bootstrap blue */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero .btn:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Featured section styles */
+    .featured {
+        text-align: center;
+        padding: 150px 0;
+        background-color: #fff; /* White background */
+    }
+
+    .featured-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .featured h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .product {
+        flex: 1 1 250px; /* Flexbox item properties */
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd; /* Light border */
+        border-radius: 5px;
+        background-color: #fff; /* White background */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    }
+
+    .product img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+    }
+
+    .product h3 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .product p {
+        font-size: 1.2rem;
+        color: #777; /* Gray text */
+        margin-bottom: 10px;
+    }
+</style>
+
+{% endblock %}

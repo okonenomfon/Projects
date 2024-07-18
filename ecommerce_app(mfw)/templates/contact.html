@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="contact">
+    <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>For any inquiries or support, please contact us:</p>
+        <ul>
+            <li>Email: enomfon20@gmail.com</li>
+            <li>Phone: +2348142347221</li>
+        </ul>
+    </div>
+
+    <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="{{ url_for('send_message') }}" method="POST" class="message-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    /* Contact Page Styles */
+
+    .contact {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 50px 0;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .contact-info h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-info ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .contact-info ul li {
+        margin-bottom: 10px;
+    }
+
+    .contact-form {
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .contact-form h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    textarea.form-control {
+        resize: vertical;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% endblock %}
