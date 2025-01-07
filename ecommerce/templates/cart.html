@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="cart">
+    <h2>Your Cart</h2>
+    {% if cart %}
+        <ul class="cart-list">
+            {% for product_id, item in cart.items() %}
+                <li class="cart-item">
+                    <img src="{{ url_for('static', filename='images/' + item.image_file) }}" alt="{{ item.name }}">
+                    <div class="item-details">
+                        <span class="item-name">{{ item.name }}</span>
+                        <span class="item-price">${{ item.price }}</span>
+                        <span class="item-quantity">Quantity: {{ item.quantity }}</span>
+                        <button class="btn btn-danger" onclick="removeFromCart('{{ product_id }}')">Remove</button>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+</section>
+
+<style>
+    /* Cart page styles */
+
+    .cart {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .cart-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cart-item img {
+        width: 100px;
+        height: auto;
+        margin-right: 20px;
+        border-radius: 5px;
+    }
+
+    .item-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .item-price {
+        font-size: 1.1rem;
+        color: #777;
+        margin-bottom: 5px;
+    }
+
+    .item-quantity {
+        font-size: 1rem;
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .btn.btn-danger {
+        background-color: #dc3545;
+    }
+
+    .btn.btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    .btn.btn-primary {
+        margin-top: 20px;
+    }
+</style>
+
+{% endblock %}
